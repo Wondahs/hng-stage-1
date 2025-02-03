@@ -11,20 +11,20 @@ export class NumbersService {
     is_perfect: this.isPerfect(number),
     properties: this.classifyProperties(number),
     digit_sum: this.digitSum(number),
-    fun_fact: this.getFunFact(number),
+    fun_fact: await this.getFunFact(number) as string,
   };
 
   return response;
 }
 
-async getFunFact(number: number): Promise<string> {
+  async getFunFact(number: number): Promise<string | void> {
   const data = await fetch(`http://numbersapi.com/${number}`);
-  // const response = await data.json();
 
-  console.log("response")
-  console.log(data)
-
-  // return response.text;
+  if (data.ok) {
+    const response = await data.text();
+    // console.log(response);
+    return response;
+  }
 }
 
 classifyProperties(number: number): string[]{
@@ -58,7 +58,7 @@ digitSum(num: number): number {
     return true;
  };
   isPerfect(number: number): boolean {
-    const divisors: number[] = [];
+    const divisors: number[] = [1];
     
     for (let i = 2; i < number; i++) {
       if (number % i === 0) divisors.push(i);

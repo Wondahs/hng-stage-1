@@ -4,5 +4,5 @@ export class CreateNumberDto {
     is_perfect: boolean;
     properties: Array<string>;
     digit_sum: number;
-    fun_fact: Promise<string>;
+    fun_fact?: string;
 }
