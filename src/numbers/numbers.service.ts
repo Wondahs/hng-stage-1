@@ -18,7 +18,7 @@ export class NumbersService {
 }
 
   async getFunFact(number: number): Promise<string | void> {
-  const data = await fetch(`http://numbersapi.com/${number}`);
+  const data = await fetch(`http://numbersapi.com/${number}/math`);
 
   if (data.ok) {
     const response = await data.text();
