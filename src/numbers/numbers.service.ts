@@ -20,7 +20,7 @@ export class NumbersService {
   async getFunFact(number: number): Promise<string | void> {
     const data = await fetch(`http://numbersapi.com/${number}/math`);
 
-      if (data.ok) {
+    if (data.ok) {
       const response = await data.text();
       // console.log(response);
       return response;
@@ -57,7 +57,9 @@ export class NumbersService {
     }
     return true;
   }
+
   isPerfect(number: number): boolean {
+    if (number === 1) return false;
     const divisors: number[] = [1];
 
     for (let i = 2; i < number; i++) {
