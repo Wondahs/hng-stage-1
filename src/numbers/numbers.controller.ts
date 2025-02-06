@@ -15,6 +15,6 @@ export class NumbersController {
         number: number,
       });
     }
-    return await this.numbersService.classify(number as number);
+    return await this.numbersService.classify(Number(number));
   }
 }
