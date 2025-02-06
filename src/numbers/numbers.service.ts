@@ -11,7 +11,7 @@ export class NumbersService {
       is_perfect: this.isPerfect(num),
       properties: this.classifyProperties(num),
       digit_sum: this.digitSum(num),
-      fun_fact: (await this.getFunFact(num)) as string,
+      fun_fact: (await this.getFunFact(number)) as string,
     };
 
     return response;
