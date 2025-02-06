@@ -7,7 +7,7 @@ export class NumbersService {
     const num = number > 0 ? number : -number;
     const response: CreateNumberDto = {
       number: number,
-      is_prime: this.isPrime(num),
+      is_prime: this.isPrime(number),
       is_perfect: this.isPerfect(num),
       properties: this.classifyProperties(num),
       digit_sum: this.digitSum(num),
@@ -52,7 +52,7 @@ export class NumbersService {
   isPrime(number: number): boolean {
     if (number <= 1) return false;
     if (number == 2 || number == 3) return true;
-    for (let i = 2; i <= Math.sqrt(number); i++) {
+    for (let i = 2; i <= Math.sqrt(number) + 1; i++) {
       if (number % i === 0) return false;
     }
     return true;

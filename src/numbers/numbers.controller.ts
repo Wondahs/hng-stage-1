@@ -11,8 +11,8 @@ export class NumbersController {
     // console.log("typeof number: ", typeof number)
     if (!number || isNaN(number)) {
       throw new BadRequestException({
-        error: 'true',
-        number: 'abc',
+        error: true,
+        number: !number ? "" :'abc',
       });
     }
     return await this.numbersService.classify(number);
